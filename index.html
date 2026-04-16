@@ -3,43 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Smart Lost & Found - NIT Silchar</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: linear-gradient(to right, #e3f2fd, #ffffff);
-      margin: 0;
-    }
-    header {
-      background: #0d47a1;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-    .container {
-      padding: 20px;
-    }
-    .card {
-      background: white;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    input, select, button {
-      padding: 10px;
-      margin: 5px;
-      width: 100%;
-    }
-    button {
-      background: #0d47a1;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    .items {
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -72,65 +36,7 @@
 
 </div>
 
-<script>
-  const API = "http://localhost:5000/api/items";
-
-  async function addItem() {
-    const name = document.getElementById("name").value;
-    const type = document.getElementById("type").value;
-    const location = document.getElementById("location").value;
-
-    const item = { itemName: name, type, location };
-
-    await fetch(API, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(item)
-    });
-
-    loadItems();
-  }
-
-  async function loadItems() {
-    const res = await fetch(API);
-    const data = await res.json();
-
-    const container = document.getElementById("items");
-    container.innerHTML = "";
-
-    data.forEach(item => {
-      container.innerHTML += `
-        <div class="card">
-          <h3>${item.itemName}</h3>
-          <p>Type: ${item.type}</p>
-          <p>Location: ${item.location}</p>
-        </div>
-      `;
-    });
-  }
-
-  async function searchItem() {
-    const query = document.getElementById("search").value;
-
-    const res = await fetch(API + "/search?query=" + query);
-    const data = await res.json();
-
-    const container = document.getElementById("items");
-    container.innerHTML = "";
-
-    data.forEach(item => {
-      container.innerHTML += `
-        <div class="card">
-          <h3>${item.itemName}</h3>
-          <p>Type: ${item.type}</p>
-          <p>Location: ${item.location}</p>
-        </div>
-      `;
-    });
-  }
-
-  loadItems();
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
