@@ -1,57 +1,20 @@
-const API = "https://YOUR-BACKEND-URL.onrender.com/api/items";
+document.addEventListener('DOMContentLoaded', () => {
+    const reportBtn = document.getElementById('reportLostBtn');
+    const searchInput = document.getElementById('searchInput');
 
-async function addItem() {
-  const name = document.getElementById("name").value;
-  const type = document.getElementById("type").value;
-  const location = document.getElementById("location").value;
+    // Simple Click Event
+    reportBtn.addEventListener('click', () => {
+        alert('Redirecting to Report Form...');
+        // In a real app, you'd use: window.location.href = '/report.html';
+    });
 
-  const item = { itemName: name, type, location };
+    // Simple Search Filter Simulation
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        console.log('Searching for:', query);
+        // You could filter the "Recent Reports" grid here
+    });
 
-  await fetch(API, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(item)
-  });
-
-  loadItems();
-}
-
-async function loadItems() {
-  const res = await fetch(API);
-  const data = await res.json();
-
-  const container = document.getElementById("items");
-  container.innerHTML = "";
-
-  data.forEach(item => {
-    container.innerHTML += `
-      <div class="card ${item.type}">
-        <h3>${item.itemName}</h3>
-        <p><strong>Type:</strong> ${item.type}</p>
-        <p><strong>Location:</strong> ${item.location}</p>
-      </div>
-    `;
-  });
-}
-
-async function searchItem() {
-  const query = document.getElementById("search").value;
-
-  const res = await fetch(API + "/search?query=" + query);
-  const data = await res.json();
-
-  const container = document.getElementById("items");
-  container.innerHTML = "";
-
-  data.forEach(item => {
-    container.innerHTML += `
-      <div class="card ${item.type}">
-        <h3>${item.itemName}</h3>
-        <p><strong>Type:</strong> ${item.type}</p>
-        <p><strong>Location:</strong> ${item.location}</p>
-      </div>
-    `;
-  });
-}
-
-loadItems();
+    // Log for initialization
+    console.log("NIT Silchar L&F Frontend Initialized.");
+});
