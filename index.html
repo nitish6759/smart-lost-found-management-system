@@ -1,68 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Smart Lost & Found</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIT Silchar L&F</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+    </style>
 </head>
+<body class="flex min-h-screen">
 
-<body>
+    <aside class="w-64 bg-white border-r border-gray-200 p-6 flex flex-col">
+        <div class="flex items-center gap-3 mb-10">
+            <div class="bg-black p-2 rounded-lg">
+                <i class="fas fa-search text-white"></i>
+            </div>
+            <h1 class="font-bold text-lg tracking-tight">NIT Silchar L&F</h1>
+        </div>
 
-<!-- Sidebar -->
-<div class="sidebar">
-  <h2>NIT Silchar L&F</h2>
-  <ul>
-    <li class="active">🏠 Home</li>
-    <li>📋 All Reports</li>
-    <li>➕ Report Item</li>
-    <li>📊 Dashboard</li>
-    <li>👤 Profile</li>
-    <li>⚙️ Settings</li>
-  </ul>
-</div>
+        <nav class="space-y-1 flex-1">
+            <a href="#" class="flex items-center gap-3 px-4 py-3 bg-gray-100 rounded-xl text-gray-900 font-medium">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:bg-gray-50 rounded-xl transition">
+                <i class="fas fa-list"></i> All Reports
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:bg-gray-50 rounded-xl transition">
+                <i class="fas fa-plus-circle"></i> Report Item
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:bg-gray-50 rounded-xl transition">
+                <i class="fas fa-th-large"></i> Dashboard
+            </a>
+        </nav>
 
-<!-- Main Content -->
-<div class="main">
+        <div class="mt-auto space-y-1">
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:bg-gray-50 rounded-xl transition">
+                <i class="fas fa-user"></i> Profile
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:bg-gray-50 rounded-xl transition">
+                <i class="fas fa-cog"></i> Settings
+            </a>
+        </div>
+    </aside>
 
-  <!-- Top Bar -->
-  <div class="topbar">
-    <input type="text" placeholder="Search for ID cards, keys, laptops...">
-    <div class="user">Nitish Kumar</div>
-  </div>
+    <main class="flex-1 overflow-y-auto">
+        <header class="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center sticky top-0 z-10">
+            <div class="relative w-1/2">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input type="text" placeholder="Search for ID cards, keys, laptops..." 
+                       class="w-full pl-12 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <div class="text-right">
+                    <p class="text-sm font-bold text-gray-800">Nitish Kumar</p>
+                    <p class="text-xs text-gray-500">CSE '29</p>
+                </div>
+                <img src="https://ui-avatars.com/api/?name=Nitish+Kumar&background=0D8ABC&color=fff" class="w-10 h-10 rounded-full border border-gray-200" alt="Profile">
+            </div>
+        </header>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <div>
-      <h1>Find what you lost.</h1>
-      <p>Connecting NIT Silchar students to recover items instantly.</p>
-      <button onclick="addItem()">Report Lost</button>
-    </div>
-  </div>
+        <div class="p-8 flex gap-8">
+            <div class="flex-1 space-y-8">
+                <div class="bg-blue-600 rounded-[2rem] p-10 text-white relative overflow-hidden shadow-xl shadow-blue-100">
+                    <div class="relative z-10">
+                        <h2 class="text-5xl font-bold mb-4">Find what you<br>lost.</h2>
+                        <p class="text-blue-100 max-w-sm mb-8 leading-relaxed">
+                            Connecting NIT Silchar students to recover missing items instantly through our smart matching system.
+                        </p>
+                        <div class="flex gap-4">
+                            <button class="bg-white text-gray-900 px-6 py-3 rounded-xl font-bold hover:bg-gray-100 transition">Report Lost</button>
+                            <button class="bg-white/20 backdrop-blur-md border border-white/30 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/30 transition">Report Found</button>
+                        </div>
+                    </div>
+                </div>
 
-  <!-- Items -->
-  <h3>Recent Reports</h3>
-  <div id="items" class="items"></div>
+                <section>
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-bold text-xl text-gray-800 uppercase tracking-wider text-sm">Recent Reports</h3>
+                        <a href="#" class="text-blue-600 font-semibold text-sm">View All</a>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                            <div class="bg-gray-50 rounded-xl h-32 flex items-center justify-center mb-4">
+                                <i class="fas fa-laptop text-4xl text-blue-400"></i>
+                            </div>
+                            <span class="bg-green-100 text-green-600 text-[10px] font-bold px-2 py-1 rounded-md uppercase">Claimed</span>
+                            <h4 class="font-bold text-gray-800 mt-2">MacBook Pro 14"</h4>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                            <div class="bg-gray-50 rounded-xl h-32 flex items-center justify-center mb-4">
+                                <i class="fas fa-mobile-alt text-4xl text-blue-400"></i>
+                            </div>
+                            <span class="bg-green-100 text-green-600 text-[10px] font-bold px-2 py-1 rounded-md uppercase">Claimed</span>
+                            <h4 class="font-bold text-gray-800 mt-2">iPhone 13</h4>
+                        </div>
+                    </div>
+                </section>
+            </div>
 
-</div>
+            <div class="w-80 space-y-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-bolt text-gray-400 text-xs"></i>
+                        <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-widest">AI Match Suggestions</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center gap-4">
+                            <div class="bg-purple-50 p-3 rounded-xl"><i class="fas fa-id-card text-purple-600"></i></div>
+                            <div>
+                                <p class="font-bold text-sm">A. Kumar's ID</p>
+                                <p class="text-green-500 text-xs font-bold">98% Confidence Match</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center gap-4">
+                            <div class="bg-yellow-50 p-3 rounded-xl"><i class="fas fa-key text-yellow-600"></i></div>
+                            <div>
+                                <p class="font-bold text-sm">Black Keyring</p>
+                                <p class="text-blue-400 text-xs font-bold">74% Probable Match</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Right Panel -->
-<div class="right">
-
-  <h3>⚡ AI Match Suggestions</h3>
-
-  <div class="suggestion">
-    <h4>ID Card</h4>
-    <p style="color:green;">98% Match</p>
-  </div>
-
-  <div class="suggestion">
-    <h4>Black Keyring</h4>
-    <p style="color:green;">74% Match</p>
-  </div>
-
-</div>
-
-<script src="script.js"></script>
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-map text-gray-400 text-xs"></i>
+                        <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-widest">Loss Hotspots</h3>
+                    </div>
+                    <div class="bg-blue-50 h-48 rounded-[2rem] relative flex items-end p-6 overflow-hidden border border-blue-100">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.2)_0%,transparent_50%)]"></div>
+                        <p class="relative z-10 text-[10px] font-black text-blue-900 tracking-tighter uppercase">Nit Silchar Campus Map</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
 </body>
 </html>
