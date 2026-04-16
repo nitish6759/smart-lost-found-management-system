@@ -25,10 +25,10 @@ async function loadItems() {
 
   data.forEach(item => {
     container.innerHTML += `
-      <div class="card">
+      <div class="card ${item.type}">
         <h3>${item.itemName}</h3>
-        <p>Type: ${item.type}</p>
-        <p>Location: ${item.location}</p>
+        <p><strong>Type:</strong> ${item.type}</p>
+        <p><strong>Location:</strong> ${item.location}</p>
       </div>
     `;
   });
@@ -45,10 +45,10 @@ async function searchItem() {
 
   data.forEach(item => {
     container.innerHTML += `
-      <div class="card">
+      <div class="card ${item.type}">
         <h3>${item.itemName}</h3>
-        <p>Type: ${item.type}</p>
-        <p>Location: ${item.location}</p>
+        <p><strong>Type:</strong> ${item.type}</p>
+        <p><strong>Location:</strong> ${item.location}</p>
       </div>
     `;
   });
