@@ -1,96 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #2563eb;
+    --bg-gray: #f8fafc;
+}
+
 body {
-  margin: 0;
-  font-family: Arial;
-  display: flex;
-  background: #f5f7fb;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-gray);
+    color: #1e293b;
 }
 
-/* Sidebar */
-.sidebar {
-  width: 220px;
-  background: #fff;
-  padding: 20px;
-  height: 100vh;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+/* Sidebar Styling */
+.nav-item.active {
+    background-color: #f1f5f9;
+    color: #0f172a;
 }
 
-.sidebar ul {
-  list-style: none;
-  padding: 0;
+.nav-item:hover:not(.active) {
+    background-color: #f8fafc;
+    color: #2563eb;
 }
 
-.sidebar li {
-  padding: 12px;
-  margin: 5px 0;
-  border-radius: 8px;
-  cursor: pointer;
+/* Custom UI Elements */
+.badge-claimed {
+    background-color: #dcfce7;
+    color: #166534;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
 }
 
-.sidebar li.active {
-  background: #e3f2fd;
+.sidebar-label {
+    color: #94a3b8;
+    font-weight: 800;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
-/* Main */
-.main {
-  flex: 1;
-  padding: 20px;
+.section-title {
+    font-weight: 800;
+    color: #1e293b;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-/* Topbar */
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+.map-widget::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
 }
 
-.topbar input {
-  width: 60%;
-  padding: 10px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-}
-
-/* Hero */
-.hero {
-  background: linear-gradient(135deg, #2a5bd7, #4f7cff);
-  color: white;
-  padding: 30px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
-
-.hero button {
-  padding: 10px 20px;
-  border: none;
-  background: white;
-  color: #2a5bd7;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-/* Items */
-.items {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-}
-
+/* Animations */
 .card {
-  background: white;
-  padding: 15px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Right Panel */
-.right {
-  width: 250px;
-  padding: 20px;
-}
-
-.suggestion {
-  background: white;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 10px;
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
 }
