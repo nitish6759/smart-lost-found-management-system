@@ -1,40 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Smart Lost & Found - NIT Silchar</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Smart Lost & Found</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<nav>
-  <h2>Smart Lost & Found</h2>
-  <p>NIT Silchar</p>
-</nav>
+<!-- Sidebar -->
+<div class="sidebar">
+  <h2>NIT Silchar L&F</h2>
+  <ul>
+    <li class="active">🏠 Home</li>
+    <li>📋 All Reports</li>
+    <li>➕ Report Item</li>
+    <li>📊 Dashboard</li>
+    <li>👤 Profile</li>
+    <li>⚙️ Settings</li>
+  </ul>
+</div>
 
-<div class="container">
+<!-- Main Content -->
+<div class="main">
 
-  <div class="form-section">
-    <h2>📦 Report Item</h2>
-
-    <input type="text" id="name" placeholder="Item Name">
-    
-    <select id="type">
-      <option value="lost">🔴 Lost</option>
-      <option value="found">🟢 Found</option>
-    </select>
-
-    <input type="text" id="location" placeholder="Location (e.g., Library)">
-    
-    <button onclick="addItem()">Submit</button>
+  <!-- Top Bar -->
+  <div class="topbar">
+    <input type="text" placeholder="Search for ID cards, keys, laptops...">
+    <div class="user">Nitish Kumar</div>
   </div>
 
-  <div class="search-section">
-    <input type="text" id="search" placeholder="🔍 Search items..." onkeyup="searchItem()">
+  <!-- Hero Section -->
+  <div class="hero">
+    <div>
+      <h1>Find what you lost.</h1>
+      <p>Connecting NIT Silchar students to recover items instantly.</p>
+      <button onclick="addItem()">Report Lost</button>
+    </div>
   </div>
 
-  <div class="items" id="items"></div>
+  <!-- Items -->
+  <h3>Recent Reports</h3>
+  <div id="items" class="items"></div>
+
+</div>
+
+<!-- Right Panel -->
+<div class="right">
+
+  <h3>⚡ AI Match Suggestions</h3>
+
+  <div class="suggestion">
+    <h4>ID Card</h4>
+    <p style="color:green;">98% Match</p>
+  </div>
+
+  <div class="suggestion">
+    <h4>Black Keyring</h4>
+    <p style="color:green;">74% Match</p>
+  </div>
 
 </div>
 
